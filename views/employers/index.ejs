@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<% employers.forEach( employer => { %>
+  <h1> <%= employer.name %> </h1>
+<% }) %>
+
+
+<form action="/employers" method="POST">
+  <input type = 'text' name = 'name'  placeholder="name of company"><br>
+  <input type = 'text' name = 'logo'  placeholder="logo url"><br>
+  <input type = 'text' name = 'email'  placeholder="email"><br>
+  <input type = 'text' name = 'password'  placeholder="password"><br>
+  <button type = 'sumbit' name="Sumbit" ></button>
+</form>
+
+
+</body>
+</html>
