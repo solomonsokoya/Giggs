@@ -1,6 +1,7 @@
-const employerRouter = require('express').Router();
+const employersRouter = require('express').Router();
 const employerController = require('../controllers/employersController');
 const employerViewController = require('../controllers/employersViewController');
+const authController = require('../controllers/authController');
 
 function sendErrors(err, req, res, next){
   console.log('errors');
@@ -10,10 +11,26 @@ function sendErrors(err, req, res, next){
   });
 };
 
-employerRouter.route('/')
-  .get(employerController.getAllEmployers, employerViewController.sendEmployers, sendErrors)
-  .post(employerController.createEmployer, employerViewController.sendCreateEmployer);
+// employerRouter.route('/')
+//   .get(employerViewController.showEmployersHome)
+//   // .get(employerController.getAllEmployers, employerViewController.sendEmployers, sendErrors)
+//   // .post(employerController.createEmployer, employerViewController.sendCreateEmployer);
+
+// employerRouter.route('/login')
+//   .get(employerViewController.showLoginForm)
+
+employersRouter.route('/')
+  .get(employerViewController.showEmployersHome);
+
+employersRouter.route('/login')
+  .get(employerViewController.showLoginForm)
+  .post(authController.login, employerViewController.handleCreatedEmployer);
 
 
-module.exports = employerRouter
+
+employersRouter.route('/register')
+  .get(employerViewController.showRegisterForm)
+  .post(authController.register, employerViewController.handleCreatedEmployer);
+
+module.exports = employersRouter
 

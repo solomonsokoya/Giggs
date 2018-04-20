@@ -46,9 +46,10 @@ Include a full list of features that have been prioritized based on the `Time an
 ## MVP 
 
 Include the full list of features that will be part of your MVPs
--Css looks nice
--Render
-
+-Everything but facebook api
+    -Auth
+    -CRUD
+    -CSS
 
 ## POST MVP
 
@@ -65,6 +66,7 @@ Time frames are also key in the development cycle.  You have limited time to cod
 | routes and controllers| H | 2 - 3 hrs |
 | database | H | 30 min| 
 | views | H | 4hrs |
+| auth | H | 2 hrs |
 | CSS Styling | L | 4hrs - 6hrs |
 
 

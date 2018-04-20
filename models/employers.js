@@ -11,11 +11,11 @@ function allEmployers(){
 
 };
 
-function oneEmployer(id){
+function oneEmployer(email){
   const queryPromise = db.one(`
     SELECT *
     FROM employers
-    WHERE id = $1`, id);
+    WHERE email = $1`, email);
 
   return queryPromise;
 };
