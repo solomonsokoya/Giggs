@@ -1,9 +1,9 @@
 //bycrypt is used to hash the password and also to compare the password
 const bcrypt = require('bcrypt');
 
-//import employers databse so we can create a new employer or retrieve data
+//import workers databse so we can create a new worker or retrieve data
 
-const employerDb = require('../models/employers');
+const workersDb = require('../models/workers');
 
 function register(req, res, next){
   const salt = parseInt(process.env.SALT);
@@ -11,12 +11,14 @@ function register(req, res, next){
   const user = {
 
     name: req.body.name,
-    logo: req.body.logo,
+    skills: req.body.skills,
+    location: req.body.location,
+    picture: req.body.picture,
     email: req.body.email,
     password: hash
   }
 
-  employerDb.createEmployer(user)
+  workersDb.createWorker(user)
     .then( user =>{
       if( !user ){
         throw{
@@ -24,7 +26,6 @@ function register(req, res, next){
         }
       }
       req.session.user = user;
-      // req.locals.user = user;
       next();
     })
     .catch( err => {
@@ -33,12 +34,12 @@ function register(req, res, next){
 }
 
 function login (req, res, next){
-  let employer;
+  let worker;
   const loginAttempt ={
     email: req.body.email,
     password: req.body.password
   };
-  employerDb.oneEmployerByEmail(loginAttempt.email)
+  workersDb.getOneWorkerByEmail(loginAttempt.email)
   .then(data =>{
     user = data
     return bcrypt.compareSync(loginAttempt.password, data.password);
@@ -50,7 +51,7 @@ function login (req, res, next){
         message: "invalid password"
       }
     }
-    req.session.employer = employer;
+    req.session.worker = worker;
     next();
   })
   .catch( err =>{
@@ -60,7 +61,13 @@ function login (req, res, next){
 
 };
 
+function logout(req, res, next) {
+  req.session.destroy(err => next(err));
+   }
+
+
 module.exports = {
   register: register,
-  login: login
+  login: login,
+  logout: logout
 };

@@ -11,13 +11,6 @@ function sendErrors(err, req, res, next){
   });
 };
 
-// employerRouter.route('/')
-//   .get(employerViewController.showEmployersHome)
-//   // .get(employerController.getAllEmployers, employerViewController.sendEmployers, sendErrors)
-//   // .post(employerController.createEmployer, employerViewController.sendCreateEmployer);
-
-// employerRouter.route('/login')
-//   .get(employerViewController.showLoginForm)
 
 employersRouter.route('/')
   .get(employerViewController.showEmployersHome);
@@ -27,10 +20,13 @@ employersRouter.route('/login')
   .post(authController.login, employerViewController.handleCreatedEmployer);
 
 
-
 employersRouter.route('/register')
   .get(employerViewController.showRegisterForm)
   .post(authController.register, employerViewController.handleCreatedEmployer);
+
+employersRouter.route('/:id')
+  .get(employerController.getOneEmployer, employerController.getEmployersJobs, employerViewController.sendOneEmployer)
+  .post(employerController.createJob, employerViewController.sendCreatedJob)
 
 module.exports = employersRouter
 

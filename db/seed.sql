@@ -18,7 +18,7 @@ CREATE TABLE jobs (
   start_date DATE,
   pay INT,
   job_title VARCHAR(255),
-  job_id INT NOT NULL REFERENCES employers (id)
+  job_id INT REFERENCES employers (id)
 );
 CREATE TABLE workers (
   id SERIAL PRIMARY KEY,

@@ -9,6 +9,18 @@ function getAllJobs(){
   return queryPromise;
 };
 
+function getMatch(id){
+  const queryPromise = db.any(`
+  SELECT *
+  FROM jobs
+  JOIN employers
+  ON job_id = employers.id
+  WHERE employers.id = $1;
+  `, id);
+
+  return queryPromise;
+};
+
 function getOneJob(id){
   const queryPromise = db.one(`
     SELECT *
@@ -25,7 +37,7 @@ function createJob(job){
   VALUES
   ($/description/, $/location/, $/start_date/, $/pay/, $/job_title/, $/job_id/)
   RETURNING *
-    `, jobs);
+    `, job);
 
   return queryPromise;
 };
@@ -52,5 +64,6 @@ module.exports = {
   updateJob: updateJob,
   createJob: createJob,
   getOneJob: getOneJob,
-  getAllJobs: getAllJobs
+  getAllJobs: getAllJobs,
+  getMatch: getMatch
 }

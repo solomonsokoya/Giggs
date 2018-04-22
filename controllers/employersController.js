@@ -1,4 +1,5 @@
 const employersDb = require('../models/employers');
+const jobsDb = require('../models/jobs');
 
 //Get Employers
 
@@ -24,6 +25,42 @@ function getOneEmployer(req, res, next){
     }).catch( err => {
       next(err);
     });
+};
+
+//Get all jobs of the employer
+
+function getEmployersJobs(req, res, next){
+  console.log('I get all jobs')
+  jobsDb.getMatch(req.params.id)
+  .then( data =>{
+    res.locals.jobs = data;
+    next();
+  }).catch( err =>{
+    next(err);
+  });
+};
+
+function getAllJobs(req, res, next){
+  jobsDb.getAllJobs()
+  .then( data =>{
+    res.locals.jobs = data;
+    next();
+  }).catch(err =>{
+    next(err);
+  });
+};
+
+//Create a Job posting
+
+function createJob(req, res, next){
+  console.log('I create jobs');
+  jobsDb.createJob(req.body)
+  .then( data =>{
+    res.locals.newJob = data;
+    next();
+  }).catch( err => {
+    next(err);
+  });
 };
 
 //Create One
@@ -58,12 +95,16 @@ function updateEmployers(req, res, next){
 };
 
 
+
 module.exports = {
   getAllEmployers: getAllEmployers,
   getOneEmployer: getOneEmployer,
   createEmployer: createEmployer,
   updateEmployers: updateEmployers,
-  destoryEmployer: destoryEmployer
+  destoryEmployer: destoryEmployer,
+  getEmployersJobs: getEmployersJobs,
+  createJob: createJob,
+  getAllJobs: getAllJobs
 };
 
 

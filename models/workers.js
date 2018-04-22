@@ -10,7 +10,17 @@ function getOneWorker(id){
 return queryPromise;
 };
 
-function createWorker( worker){
+function getOneWorkerByEmail(email){
+  const queryPromise = db.one(`
+    SELECT *
+    FROM workers
+    WHERE email = $1
+    `, email);
+
+return queryPromise;
+};
+
+function createWorker(worker){
    const queryPromise = db.one(`
     INSERT INTO workers
     (name, skills, location, picture, email, password)
@@ -43,5 +53,6 @@ module.exports = {
   updateWorker: updateWorker,
   deleteWorker: deleteWorker,
   createWorker: createWorker,
-  getOneWorker: getOneWorker
+  getOneWorker: getOneWorker,
+  getOneWorkerByEmail: getOneWorkerByEmail
 };

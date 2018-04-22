@@ -5,19 +5,21 @@
 </head>
 <body>
 
-<% employers.forEach( employer => { %>
   <h1> <%= employer.name %> </h1>
-<% }) %>
 
+  <h2> <%= jobs.description %> </h2>
 
-<form action="/employers" method="POST">
-  <input type = 'text' name = 'name'  placeholder="name of company"><br>
-  <input type = 'text' name = 'logo'  placeholder="logo url"><br>
-  <input type = 'text' name = 'email'  placeholder="email"><br>
-  <input type = 'text' name = 'password'  placeholder="password"><br>
-  <button type = 'sumbit' name="Sumbit" ></button>
+<form action=":id" method="POST">
+  <input name="description" type="text" placeholder="job description">
+  <input name="location" type="text" placeholder="location">
+  <input name="start_date" type="date" placeholder="yyyy/mm/dd">
+  <input name="pay" type="number" placeholder="hourly">
+  <input name="job_title" type="text" placeholder="job title">
+  <select name="job_id">
+    <option value="<%= employer.id %>"> <%= employer.name%></option>
+  </select>
+  <input type="submit" name = "post">
 </form>
-
 
 </body>
 </html>

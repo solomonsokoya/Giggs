@@ -7,15 +7,14 @@ function sendEmployers(req, res){
 
 function sendOneEmployer(req, res){
   console.log('I send successfully');
-  res.render('employers/show', {
-    employer: res.locals.employer
+  res.render('employers/index', {
+    employer: res.locals.employer,
+    jobs: res.locals.jobs
   });
 };
 
-function sendCreateEmployer(req, res){
-  console.log('I send successfully');
-  employer = res.locals.newEmployer;
-  res.redirect(`/employers/${employer.id}`);
+function sendCreatedJob(req, res){
+  res.redirect('back');
 };
 
 function editEmployer(req, res){
@@ -41,13 +40,14 @@ function showRegisterForm(req, res){
 };
 
 function handleCreatedEmployer(req, res){
-  res.redirect('/');
+  const employer = req.session.user;
+  res.redirect(`${employer.id}`);
 }
 
 module.exports = {
   sendEmployers: sendEmployers,
   sendOneEmployer: sendOneEmployer,
-  sendCreateEmployer: sendCreateEmployer,
+  sendCreatedJob: sendCreatedJob,
   editEmployer: editEmployer,
   deleteEmployer: deleteEmployer,
   showEmployersHome: showEmployersHome,

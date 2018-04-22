@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const PORT = 3009;
 const employersRouter = require('./router/employerRouter');
+const workersRouter = require('./router/workersRouter');
 
 
 const app = express();
@@ -38,6 +39,7 @@ app.get('/', (req,res) => {
 });
 
 app.use('/employers', employersRouter);
+app.use('/workers', workersRouter);
 
 app.listen(PORT, () => {
   console.log(`[*] listening on port ${PORT}`)

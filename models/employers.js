@@ -11,7 +11,16 @@ function allEmployers(){
 
 };
 
-function oneEmployer(email){
+function oneEmployer(id){
+  const queryPromise = db.one(`
+    SELECT *
+    FROM employers
+    WHERE id = $1`, id);
+
+  return queryPromise;
+};
+
+function oneEmployerByEmail(email){
   const queryPromise = db.one(`
     SELECT *
     FROM employers
@@ -57,5 +66,6 @@ module.exports = {
   updateEmployer: updateEmployer,
   createEmployer: createEmployer,
   oneEmployer: oneEmployer,
-  allEmployers: allEmployers
+  allEmployers: allEmployers,
+  oneEmployerByEmail, oneEmployerByEmail
 };
