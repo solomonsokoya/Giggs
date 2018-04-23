@@ -56,11 +56,18 @@ function login (req, res, next){
   .catch( err =>{
     next(err);
 
+    res.send("Wrong Email/password");
+
     })
 
 };
 
+function logout(req, res, next) {
+  req.session.destroy(err => next(err));
+   }
+
 module.exports = {
   register: register,
-  login: login
+  login: login,
+  logout: logout
 };

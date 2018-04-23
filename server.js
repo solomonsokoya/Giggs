@@ -6,7 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const PORT = 3009;
+const PORT = 3008;
 const employersRouter = require('./router/employerRouter');
 const workersRouter = require('./router/workersRouter');
 
