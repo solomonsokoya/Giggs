@@ -29,5 +29,8 @@ employersRouter.route('/:id')
   .post(employerController.createJob, employerViewController.sendCreatedJob)
   .delete(employerController.destroyJob)
 
+employersRouter.route('/jobs/:id')
+  .get(employerController.getOneJob, employerViewController.showJob)
+
 module.exports = employersRouter
 

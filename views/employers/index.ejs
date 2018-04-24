@@ -17,8 +17,8 @@
     text-transform: uppercase;
   }
   .jobPostings{
-    max-height: 25vh;
-    max-width: 20vw;
+    max-height: 41vh;
+    max-width: 43vw;
     overflow-y:auto
   }
 
@@ -55,6 +55,7 @@
 
 .jobPostings{
   grid-area: jobPostings;
+  display: inline-block;
 }
 
 select{
@@ -89,9 +90,11 @@ input{
   <div class = "jobPostings">
     <% jobs.forEach( (job) =>{ %>
     <div class = "title"><%= job.job_title %></div>
+    <button class = "edit" value="<%= job.id %>"><a href="jobs/:id">Edit</a></button>
     <div class = "description"><%= job.description %></div><br>
     <% }) %>
-</div>
+  </div>
+
 
 </div>
 </body>

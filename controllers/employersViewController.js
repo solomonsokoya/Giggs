@@ -44,6 +44,11 @@ function handleCreatedEmployer(req, res){
   res.redirect(`${employer.id}`);
 }
 
+function showJob(req, res){
+  res.render('employer/new', {
+    job: res.locals.job
+  });
+}
 module.exports = {
   sendEmployers: sendEmployers,
   sendOneEmployer: sendOneEmployer,
@@ -53,6 +58,7 @@ module.exports = {
   showEmployersHome: showEmployersHome,
   showRegisterForm: showRegisterForm,
   handleCreatedEmployer: handleCreatedEmployer,
-  showLoginForm: showLoginForm
+  showLoginForm: showLoginForm,
+  showJob: showJob
 };
 

@@ -50,6 +50,18 @@ function getAllJobs(req, res, next){
   });
 };
 
+//Get One Job
+
+function getOneJob(req, res, next){
+  jobsDb.getOneJob(req.params.id)
+  .then(data =>{
+    res.locals.job = data;
+    next();
+  }).catch(err => {
+    next(err);
+  });
+};
+
 //Create a Job posting
 
 function createJob(req, res, next){
@@ -118,7 +130,8 @@ module.exports = {
   getEmployersJobs: getEmployersJobs,
   createJob: createJob,
   getAllJobs: getAllJobs,
-  destroyJob: destroyJob
+  destroyJob: destroyJob,
+  getOneJob: getOneJob
 };
 
 
