@@ -2,37 +2,26 @@
 
 ## Project Schedule
 
-This schedule will be used to keep track of your progress throughout the week and align with our expectations.  
-
-You are **responsible** for scheduling time with your squad to seek approval for each deliverable by the end of the corresponding day, excluding `Saturday` and `Sunday`.
 
 |  Day | Deliverable | Approval From Squad Lead
 |---|---| ---|
-|Day 1: Wed| Game Idea|
+|Day 1: Wed| App Idea|
 |Day 2: Thur| Wireframes and Priority Matrix|
 |Day 3: Fri| Pseudocode\actual code|
 |Day 4: Sat| Basic Clickable Model |
 |Day 5: Sun| Working Prototype |
-|Day 6: Mon| Game Completed / Slides |
+|Day 6: Mon| App Completed / Slides |
 |Day 7: Tue| Project Presentations |
 
 ## Project Description
-
-Use this section to describe your final project and perhaps any links to relevant sites that help convey the concept and\or functionality.
 
 -- The project I'll be working on is similar to indeed and shift gigs. The finish project
 should be able to create users (Worker/Employer). When the employer is created they can be able to 
 post job postings. The worker should be able to see the listing and then click to 
 apply/email. The employer can add/delete/update job postings.
 
-## Wireframes
-
-Include images of your wireframes. 
-
 
 ## Priority Matrix
-
-Include a full list of features that have been prioritized based on the `Time and Importance` Matix.  
 
 -User(s) will be meet the landing page
 -User(s) will put their username/password in the input field
@@ -45,20 +34,16 @@ Include a full list of features that have been prioritized based on the `Time an
 
 ## MVP 
 
-Include the full list of features that will be part of your MVPs
--Everything but facebook api
     -Auth
     -CRUD
     -CSS
 
 ## POST MVP
 
-Include the full list of features that you are considering for POST MVP
+    -Facebook API
+    -Indeed API
 
--facebook api
 
-
-Time frames are also key in the development cycle.  You have limited time to code all phases of the game.  Your estimates can then be used to evalute game possibilities based on time needed and the actual time you have before game must be submitted. 
 
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
