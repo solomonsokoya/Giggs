@@ -1,0 +1,62 @@
+
+  *{
+    margin: 0px;
+    padding: 0px;
+
+  }
+
+  .grid{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+  ". . . . . . . "
+  ". . . . . . ."
+  ". . login . signUp . ."
+  ". . . . . . ."
+  ". . . . . . ."
+
+  }
+
+  .login{
+    grid-area: login;
+  }
+
+  .signUp{
+    grid-area: signUp;
+  }
+
+  .signUp, .login {
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .5s linear;
+    font-size: .7em;
+    width: 10vw;
+    height: 10vh;
+    justify-self: center;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    font-family: 'Gugi', cursive;
+
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .background{
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  background: url("/images/cover4.jpg");
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
