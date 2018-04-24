@@ -2,18 +2,72 @@
 <html>
 <head>
   <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300" rel="stylesheet">
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.grid{
+    background-color: rgb(242,245,252);
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+  ". . . title . . . "
+  ". . . form . . ."
+  ". . . form . . ."
+  ". . . form . . ."
+  ". . . . . . ."
+}
+
+
+
+input{
+  width: 350px;
+  height: 5vh;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-size: 1em;
+  font-weight: bold;
+
+}
+
+.form{
+  grid-area: form;
+  justify-self: center;
+  align-self: center;
+
+}
+.title{
+  grid-area: title;
+  justify-self: center;
+  align-self: center;
+  font-family: 'Gugi', cursive;
+  font-size: 2em;
+}
+</style>
+
 </head>
 <body>
 
-  <form method = "POST" action="register">
-    <input type="text" name="name" placeholder="Name">
-    <input type="text" name = "skills" placeholder="skills">
-    <input type="text" name="picture" placeholder="picture url">
-    <input type="text" name = "location"  placeholder="location">
-    <input type="email" name="email" placeholder="email">
-    <input type="password" name="password" placeholder="password">
-    <input type="submit" value = "register">
+<div class = "grid">
+  <div class = "title">Join Giggs Today</div>
+  <form class = "form" method = "POST" action="Register">
+    <input class="name" type="text" name="name" placeholder="Name">
+    <input class="skills" type="text" name = "skills" placeholder="Skills">
+    <input class="picture" type="text" name="picture" placeholder="Picture url">
+    <input class="location" type="text" name = "location"  placeholder="Location">
+    <input class="email" type="email" name="email" placeholder="Email">
+    <input class="password" type="password" name="password" placeholder="Password">
+    <input class="submit" type="submit" value = "Register">
   </form>
+</div>
 
 </body>
 </html>

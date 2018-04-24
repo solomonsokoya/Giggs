@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS jobs CASCADE;
 CREATE TABLE employers (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  logo VARCHAR(255),
+  logo TEXT,
   email VARCHAR(255),
   password VARCHAR(255)
 );
@@ -34,6 +34,7 @@ INSERT INTO employers
 (name, logo, email, password)
 VALUES
 ('Gatorode', 'http://payload.cargocollective.com/1/3/125554/2124491/Gatorade_Logo_900_01%20by%20Bory_900.jpg', 'Brand Ambassador', '1234abcd');
+
 
 INSERT INTO jobs
 (description, location, start_date, pay, job_title, job_id)

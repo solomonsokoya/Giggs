@@ -63,6 +63,19 @@ function createJob(req, res, next){
   });
 };
 
+//Delete Job Posting
+
+function destroyJob(req, res, next){
+  jobsDb.deleteJob(req.params.id)
+  .then(() =>{
+    employer = req.params;
+
+    res.redirect(`/employer/${employer.id}`);
+  }).catch(err =>{
+    next(err);
+  });
+};
+
 //Create One
 
 function createEmployer(req, res, next){
@@ -104,7 +117,8 @@ module.exports = {
   destoryEmployer: destoryEmployer,
   getEmployersJobs: getEmployersJobs,
   createJob: createJob,
-  getAllJobs: getAllJobs
+  getAllJobs: getAllJobs,
+  destroyJob: destroyJob
 };
 
 

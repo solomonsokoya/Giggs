@@ -2,24 +2,97 @@
 <html>
 <head>
   <title></title>
+  <link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300" rel="stylesheet">
+
+  <style type="text/css">
+
+  h1{
+      font-family: 'Gugi', cursive;
+    }
+  .title, .description, input, label{
+    font-family: 'Lato', sans-serif;
+  }
+  .title{
+    font-size: 2.5em;
+    text-transform: uppercase;
+  }
+  .jobPostings{
+    max-height: 25vh;
+    max-width: 20vw;
+    overflow-y:auto
+  }
+
+  .description{
+    font-size: .7em;
+
+  }
+
+  .grid{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+  ". . . name . . . "
+  ". . . name . . ."
+  ". form . . jobPostings jobPostings ."
+  ". . . . jobPostings jobPostings ."
+  ". . . . jobPostings jobPostings ."
+  }
+
+.name{
+  grid-area: name;
+  font-size: 4em;
+}
+
+.form{
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.jobPostings{
+  grid-area: jobPostings;
+}
+
+select{
+  display: none;
+}
+
+input{
+  border-radius: 10px;
+  border-width: 1px;
+  font-family: 'Lato', sans-serif;
+}
+
+  </style>
 </head>
 <body>
+<div class="grid">
+  <h1 class ="name"> <%= employer.name %> </h1>
 
-  <h1> <%= employer.name %> </h1>
-
-  <h2> <%= jobs.description %> </h2>
-
-<form action=":id" method="POST">
-  <input name="description" type="text" placeholder="job description">
-  <input name="location" type="text" placeholder="location">
-  <input name="start_date" type="date" placeholder="yyyy/mm/dd">
-  <input name="pay" type="number" placeholder="hourly">
-  <input name="job_title" type="text" placeholder="job title">
-  <select name="job_id">
+  <form class = "form" action=":id" method="POST">
+    <label>Add Job Posting</label>
+    <input name="description" type="text" placeholder="job description">
+    <input name="location" type="text" placeholder="location">
+    <input name="start_date" type="date" placeholder="yyyy/mm/dd">
+    <input name="pay" type="number" placeholder="hourly">
+    <input name="job_title" type="text" placeholder="job title">
+    <select name="job_id">
     <option value="<%= employer.id %>"> <%= employer.name%></option>
-  </select>
-  <input type="submit" name = "post">
-</form>
+    </select>
+    <input type="submit" name = "post">
+  </form>
 
+  <div class = "jobPostings">
+    <% jobs.forEach( (job) =>{ %>
+    <div class = "title"><%= job.job_title %></div>
+    <div class = "description"><%= job.description %></div><br>
+    <% }) %>
+</div>
+
+</div>
 </body>
 </html>

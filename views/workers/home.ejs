@@ -3,10 +3,82 @@
 <head>
   <title></title>
 </head>
-<body>
+<link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300" rel="stylesheet">
+<style type="text/css" media="screen">
+  *{
+    margin: 0px;
+    padding: 0px;
 
-  <button><a href="workers/login"> Login </a></button>
-  <button><a href="workers/register"> Sign Up </a></button>
+  }
+
+  .grid{
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+  ". . . . . . . "
+  ". . . . . . ."
+  ". . login . signUp . ."
+  ". . . . . . ."
+  ". . . . . . ."
+
+  }
+
+  .login{
+    grid-area: login;
+  }
+
+  .signUp{
+    grid-area: signUp;
+  }
+
+  .signUp, .login {
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all .5s linear;
+    font-size: .7em;
+    width: 10vw;
+    height: 10vh;
+    justify-self: center;
+    align-self: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    outline: none;
+    font-family: 'Gugi', cursive;
+
+  }
+
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  .background{
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  background: url("/images/cover4.jpg");
+  top: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+
+
+<body>
+<div class = "background">
+
+  <div class = "grid">
+    <button class = "login"><a href="workers/login"> Login </a></button>
+    <button class = "signUp"><a href="workers/register"> Sign Up </a></button>
+  </div>
+
+</div>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <title></title>
 </head>
 
-<link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300" rel="stylesheet">
 
 <style>
 
@@ -21,8 +21,8 @@
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas:
-  ". . . . . . . "
-  ". . . title . . ."
+  ". . . title . . . "
+  ". . statement statement statement . ."
   ". . bt1 . bt2 . ."
   ". . . . . . ."
   ". . . . . . ."
@@ -33,28 +33,18 @@
   }
 
   .bt1{
-    border-radius: 12px;
     grid-area: bt1;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all .5s linear;
-    font-size: .7em;
-    width: 10vw;
-    height: 10vh;
-    justify-self: center;
-    align-self: center;
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    outline: none;
   }
 
   .bt1:hover{
     letter-spacing: 5px;
   }
-
   .bt2{
-    border-radius: 12px;
     grid-area: bt2;
+  }
+
+  .bt2, .bt1 {
+    border-radius: 12px;
     cursor: pointer;
     text-transform: uppercase;
     transition: all .5s linear;
@@ -77,13 +67,18 @@
   }
 
   .statement{
-    grid-area: statement
+    grid-area: statement;
+    font-family: 'Lato', sans-serif;
+     justify-self: center;
+    align-self: end;
   }
 
   .title{
+    padding: 0;
+    height: 14px;
     grid-area: title;
     justify-self: center;
-    align-self: center;
+    align-self: end;
     font-size: 3.5em;
     letter-spacing: 2px;
   }
@@ -92,7 +87,7 @@
   height: 100vh;
   width: 100vw;
   margin: auto;
-  background: url("/images/cover1.jpg");
+  background: url("/images/cover2.jpg");
   top: 0;
   background-position: center;
   background-repeat: no-repeat;
@@ -111,7 +106,7 @@
 
 
     <p class = "title"> Giggs</p>
-    <div class = "statement"></div>
+    <div class = "statement"> Commited To Connecting Employers & Future Employees</div>
     <button class ="bt1"><a href="/workers"> Worker</a> </button>
     <button class = "bt2"><a href="/employers"> Employer</a> </button>
   </div>
