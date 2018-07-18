@@ -9,14 +9,9 @@ const session = require('express-session');
 const PORT = 3006;
 const employersRouter = require('./router/employerRouter');
 const workersRouter = require('./router/workersRouter');
-
-
 const app = express();
 
 
-app.set("views", path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, "public")));
 
 app.set('server_secret', process.env.SERVER_SECRET);
 
@@ -35,7 +30,7 @@ app.use(methodOverride('_method'));
 
 
 app.get('/', (req,res) => {
-  res.render('home/homepage');
+  res.send('Good to go');
 });
 
 app.use('/employers', employersRouter);

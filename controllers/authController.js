@@ -23,9 +23,9 @@ function register(req, res, next){
           message: 'not correct'
         }
       }
-      req.session.user = user;
-      // req.locals.user = user;
-      next();
+      res.json({
+          user
+      })
     })
     .catch( err => {
       next(err);
@@ -50,8 +50,9 @@ function login (req, res, next){
         message: "invalid password"
       }
     }
-    req.session.employer = employer;
-    next();
+    res.json({
+      employer
+    })
   })
   .catch( err =>{
     next(err);

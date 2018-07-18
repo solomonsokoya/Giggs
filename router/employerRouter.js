@@ -4,18 +4,11 @@ const employerViewController = require('../controllers/employersViewController')
 const authController = require('../controllers/authController');
 
 
-
-employersRouter.route('/')
-  .get(employerViewController.showEmployersHome);
-
 employersRouter.route('/login')
-  .get(employerViewController.showLoginForm)
-  .post(authController.login, employerViewController.handleCreatedEmployer);
-
+  .post(authController.login);
 
 employersRouter.route('/register')
-  .get(employerViewController.showRegisterForm)
-  .post(authController.register, employerViewController.handleCreatedEmployer);
+  .post(authController.register);
 
 employersRouter.route('/:id')
   .get(employerController.getOneEmployer, employerController.getEmployersJobs, employerViewController.sendOneEmployer)
