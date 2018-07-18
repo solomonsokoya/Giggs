@@ -3,13 +3,6 @@ const employerController = require('../controllers/employersController');
 const employerViewController = require('../controllers/employersViewController');
 const authController = require('../controllers/authController');
 
-function sendErrors(err, req, res, next){
-  console.log('errors');
-  res.status(500).json({
-    status: 'error',
-    message: err.message
-  });
-};
 
 
 employersRouter.route('/')
@@ -33,4 +26,3 @@ employersRouter.route('/jobs/:id')
   .get(employerController.getOneJob, employerViewController.showJob)
 
 module.exports = employersRouter
-
