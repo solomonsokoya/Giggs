@@ -1,7 +1,7 @@
 const workersDb = require('../models/workers');
 
 
-//Get One Employer
+//Get One worker
 
 function getOneWorker(req, res, next){
   console.log('I get one worker');

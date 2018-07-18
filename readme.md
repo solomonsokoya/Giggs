@@ -45,10 +45,11 @@ apply/email. The employer can add/delete/update job postings.
 
 
 
+
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Server | H | 1hr min| 2hrs |  |
-| routes and controllers| H | 2 - 3 hrs |
+| Server | H | 1hr min| 2hrs | 2hrs  |
+| routes and controllers| H | 2 - 3 hrs | 
 | database | H | 30 min| 
 | views | H | 4hrs |
 | auth | H | 2 hrs |

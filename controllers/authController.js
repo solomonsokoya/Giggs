@@ -56,8 +56,6 @@ function login (req, res, next){
   .catch( err =>{
     next(err);
 
-    res.send("Wrong Email/password");
-
     })
 
 };
