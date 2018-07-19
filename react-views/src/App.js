@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux';
 import {user_worker, user_employer} from './ducks/user';
 
 const mapStateToProps = state => {
-  return {state}
+  const {
+    user: {
+      worker,
+      employer
+    }
+  } = state;
+  return {worker, employer}
 }
-const mapDispatchToProps = dispatch =>({
+const mapDispatchToProps = dispatch => ({
   handleUserWorker: () => dispatch(user_worker()),
   handleUserEmployee: () => dispatch(user_employer())
 
