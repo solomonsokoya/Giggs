@@ -30,10 +30,6 @@ function deleteWorker(req, res){
   res.redirect('workers/index');
 };
 
-function showRegisterForm(req, res){
-  res.render('workers/registerForm')
-};
-
 function handleCreatedWorker(req, res){
   res.json({
       user: req.session.user
@@ -46,8 +42,5 @@ module.exports = {
   sendCreatedWorker: sendCreatedWorker,
   editWorker: editWorker,
   deleteWorker: deleteWorker,
-  showWorkersHome: showWorkersHome,
-  showRegisterForm: showRegisterForm,
-  handleCreatedWorker: handleCreatedWorker,
-  showLoginForm: showLoginForm
+  handleCreatedWorker: handleCreatedWorker
 };

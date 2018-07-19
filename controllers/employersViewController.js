@@ -53,7 +53,6 @@ module.exports = {
   sendOneEmployer: sendOneEmployer,
   sendCreatedJob: sendCreatedJob,
   editEmployer: editEmployer,
-  deleteEmployer: deleteEmployer,
   showEmployersHome: showEmployersHome,
   showRegisterForm: showRegisterForm,
   handleCreatedEmployer: handleCreatedEmployer,

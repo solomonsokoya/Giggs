@@ -6,7 +6,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const PORT = 3006;
+const PORT = process.env.PORT || 3009;
 const employersRouter = require('./router/employerRouter');
 const workersRouter = require('./router/workersRouter');
 const app = express();
@@ -14,6 +14,7 @@ const app = express();
 
 
 app.set('server_secret', process.env.SERVER_SECRET);
+
 
 app.use(session({
   secret:            app.get('server_secret'),
