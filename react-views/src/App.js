@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {connect} from 'react-redux';
 import {user_worker, user_employer} from './ducks/user';
@@ -31,14 +30,15 @@ class App extends Component {
         console.log(this.props)
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+      <div className = "background">
+        <link href="https://fonts.googleapis.com/css?family=Gugi|Lato:300" rel="stylesheet"/>
+        <div className = "grid">
+          <p className = "title"> Giggs</p>
+          <div className = "statement"> Commited To Connecting Employers & Future Employees</div>
+          <button className ="bt1"><a className="bt1" href="/workers"> Worker</a> </button>
+          <button className = "bt2"><a className="bt2" href="/employers"> Employer</a> </button>
+        </div>
       </div>
     );
   }
