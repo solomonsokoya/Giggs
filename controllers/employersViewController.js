@@ -7,26 +7,25 @@ function sendEmployers(req, res){
 
 function sendOneEmployer(req, res){
   console.log('I send successfully');
-  res.render('employers/index', {
+  res.json({
     employer: res.locals.employer,
     jobs: res.locals.jobs
   });
 };
 
 function sendCreatedJob(req, res){
-  res.redirect('back');
+  res.json({
+    job: res.locals.newJob
+  })
 };
 
 function editEmployer(req, res){
   console.log('I send successfully');
-  res.render('employers/index', {
+  res.json({
     employer: res.locals.employer
   });
 };
 
-function deleteEmployer(req, res){
-  res.redirect('employers/index');
-};
 
 function showEmployersHome(req, res){
   res.render('employers/home');
@@ -45,7 +44,7 @@ function handleCreatedEmployer(req, res){
 }
 
 function showJob(req, res){
-  res.render('employer/new', {
+  res.json({
     job: res.locals.job
   });
 }
@@ -61,4 +60,3 @@ module.exports = {
   showLoginForm: showLoginForm,
   showJob: showJob
 };
-

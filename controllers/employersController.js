@@ -80,9 +80,9 @@ function createJob(req, res, next){
 function destroyJob(req, res, next){
   jobsDb.deleteJob(req.params.id)
   .then(() =>{
-    employer = req.params;
-
-    res.redirect(`/employer/${employer.id}`);
+    res.json({
+      status: 'ok'
+    })
   }).catch(err =>{
     next(err);
   });
@@ -133,5 +133,3 @@ module.exports = {
   destroyJob: destroyJob,
   getOneJob: getOneJob
 };
-
-
