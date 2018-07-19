@@ -5,7 +5,7 @@ import './App.css';
 class App extends Component {
   render() {
 
-        fetch('/employers/1').then( data => data.json()).then(data1 => console.log(data1));
+        fetch('/employers/1').then( data => data.json()).then( respBody => console.log(respBody));
     return (
       <div className="App">
         <header className="App-header">
