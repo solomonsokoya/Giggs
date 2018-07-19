@@ -7,9 +7,7 @@ function sendWorkers(req, res){
 
 function sendOneWorker(req, res){
    console.log('I send successfully');
-   console.log(res.locals.worker);
-   console.log(res.locals.jobs);
-  res.render('workers/index', {
+  res.json({
     worker: res.locals.worker,
     jobs: res.locals.jobs
   });
@@ -32,20 +30,14 @@ function deleteWorker(req, res){
   res.redirect('workers/index');
 };
 
-function showWorkersHome(req, res){
-  res.render('workers/home');
-};
-function showLoginForm(req, res){
-  res.render('workers/loginForm');
-};
-
 function showRegisterForm(req, res){
   res.render('workers/registerForm')
 };
 
 function handleCreatedWorker(req, res){
-   const worker = req.session.user;
-  res.redirect(`${worker.id}`);
+  res.json({
+      user: req.session.user
+  })
 }
 
 module.exports = {
@@ -59,4 +51,3 @@ module.exports = {
   handleCreatedWorker: handleCreatedWorker,
   showLoginForm: showLoginForm
 };
-

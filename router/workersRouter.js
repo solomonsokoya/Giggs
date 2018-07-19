@@ -13,15 +13,10 @@ function sendErrors(err, req, res, next){
 };
 
 
-workersRouter.route('/')
-  .get(workersViewController.showWorkersHome);
-
 workersRouter.route('/login')
-  .get(workersViewController.showLoginForm)
   .post(authController.login, workersViewController.handleCreatedWorker);
 
 workersRouter.route('/register')
-  .get(workersViewController.showRegisterForm)
   .post(authController.register, workersViewController.handleCreatedWorker);
 
 workersRouter.route('/:id')
