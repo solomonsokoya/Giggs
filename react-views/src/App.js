@@ -6,8 +6,21 @@ import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
 
 const mapStateToProps = state => {
-  const {worker, employer, name, email, password, skills, picture, location, logo} = state;
-  return {worker, employer}
+
+  const { worker, employer} = state.userType;
+  const { email, logo, name, picture, password, skills, location} = state.register;
+
+  return {
+    worker,
+    employer,
+    email,
+    logo,
+    name,
+    picture,
+    password,
+    skills,
+    location
+  }
 }
 const mapDispatchToProps = dispatch => ({
   handleUserWorker: () => dispatch(user_worker()),
@@ -16,16 +29,40 @@ const mapDispatchToProps = dispatch => ({
 
 class App extends Component {
   render() {
-    const {handleUserWorker, handleUserEmployer} = this.props
+    const {
+      handleUserWorker,
+      handleUserEmployer,
+      worker,
+      employer,
+      email,
+      logo,
+      name,
+      picture,
+      password,
+      skills,
+      location
+    } = this.props
     let View;
 
-    if (!this.props.worker && !this.props.employer) {
+    if (!worker && !employer) {
       View = <Home handleUserWorker={handleUserWorker} handleUserEmployer={handleUserEmployer}/>
-    } else if (this.props.worker) {
-      View = <WorkerRegister/>
+    } else if (worker) {
+      View = <WorkerRegister
+          name = {name}
+          skills = {skills}
+          picture = {picture}
+          location = {location}
+          email = {email}
+          password = {password}
+       />
     }
-    else if(this.props.employer){
-      View = <EmployerRegister/>
+    else if(employer){
+      View = <EmployerRegister
+        name = {name}
+        logo = {logo}
+        email ={email}
+        password ={password}
+      />
     }
     return (<div>
       {View}

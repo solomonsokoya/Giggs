@@ -1,9 +1,9 @@
-const USER_WORKER = 'USER_WORKER';
-const USER_EMPLOYER = 'USER_EMPLOYER';
+const WORKER = 'WORKER';
+const EMPLOYER = 'EMPLOYER';
 
-export const user_worker = res => ({type: USER_WORKER, payload: res})
+export const user_worker = res => ({type: WORKER, payload: res})
 
-export const user_employer = res => ({type: USER_EMPLOYER, payload: res})
+export const user_employer = res => ({type: EMPLOYER, payload: res})
 
 const defaultState = {
   name: '',
@@ -16,7 +16,7 @@ const defaultState = {
 }
 export const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case USER_WORKER:
+    case WORKER:
       const { name, skills, picture, location, email, password } = action.payload
       return Object.assign({}, state, {
         name,
@@ -26,7 +26,7 @@ export const reducer = (state = defaultState, action) => {
         email,
         password
       });
-    case USER_EMPLOYER:
+    case EMPLOYER:
       const { logo } = action.payload
       return Object.assign({}, state, {
         name,

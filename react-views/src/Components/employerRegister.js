@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 class employerRegister extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className = "loginGrid">
         <div className = "headline">Join Giggs Today</div>
