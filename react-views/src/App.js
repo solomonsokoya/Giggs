@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {user_worker, user_employer} from './reducers';
+import {user_worker, user_employer} from './ducks/userType';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
 
 const mapStateToProps = state => {
-  const {worker, employer} = state;
+  const {worker, employer, name, email, password, skills, picture, location, logo} = state;
   return {worker, employer}
 }
 const mapDispatchToProps = dispatch => ({
