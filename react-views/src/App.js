@@ -1,21 +1,19 @@
 import React, {Component} from 'react';
 import './App.css';
 import {connect} from 'react-redux';
-import {user_worker, user_employer} from './ducks/user';
+import {user_worker, user_employer} from './reducers';
 
 const mapStateToProps = state => {
+  console.log(state)
   const {
-    user: {
       worker,
       employer
-    }
   } = state;
   return {worker, employer}
 }
 const mapDispatchToProps = dispatch => ({
   handleUserWorker: () => dispatch(user_worker()),
-  handleUserEmployee: () => dispatch(user_employer())
-
+  handleUserEmployer: () => dispatch(user_employer())
 });
 
 class App extends Component {
@@ -36,8 +34,8 @@ class App extends Component {
         <div className = "grid">
           <p className = "title"> Giggs</p>
           <div className = "statement"> Commited To Connecting Employers & Future Employees</div>
-          <button className ="bt1"><a className="bt1" href="/workers"> Worker</a> </button>
-          <button className = "bt2"><a className="bt2" href="/employers"> Employer</a> </button>
+          <button className ="bt1" onClick = {this.props.handleUserWorker}>Worker</button>
+          <button className = "bt2" onClick = {this.props.handleUserEmployer}>Employer</button>
         </div>
       </div>
     );
