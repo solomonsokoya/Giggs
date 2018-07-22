@@ -6,10 +6,10 @@ export const user_worker = res => ({type: WORKER, payload: res})
 
 export const user_employer = res => ({type: EMPLOYER, payload: res})
 
-export const registerPageChange = (key, value) => ({
+export const registerPageChange = (name, value) => ({
   type: REGISTER_PAGE_CHANGE,
   payload: {
-    key,
+    name,
     value
   }
 });
@@ -44,7 +44,7 @@ export const reducer = (state = defaultState, action) => {
         password
       });
       case REGISTER_PAGE_CHANGE:
-      return Object.assign({}, state, {[action.payload.key]: action.payload.value})
+      return Object.assign({}, state, {[action.payload.name]: action.payload.value})
     default:
       return state
   }

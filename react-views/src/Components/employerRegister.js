@@ -1,19 +1,29 @@
 import React, {Component} from 'react';
 class employerRegister extends Component {
+  constructor(props) {
+    super(props)
+
+    this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  handleInputChange(e) {
+    const {name, value} = e.target;
+    this.props.handleChange(name, value);
+  }
+
   render() {
-    console.log(this.props)
-    return (
-      <div className = "loginGrid">
-        <div className = "headline">Join Giggs Today</div>
-        <form className = "form" >
-          <input type="text" name="name" placeholder="Name"/>
-          <input type="text" name="logo" placeholder="logo url"/>
-          <input type="email" name="email" placeholder="email"/>
-          <input type="password" name="password" placeholder="password"/>
-          <input type="submit" value = "register"/>
-        </form>
-      </div>
-    );
+    const {name, logo, email, password} = this.props
+
+    return (<div className="loginGrid">
+      <div className="headline">Join Giggs Today</div>
+      <form className="form">
+        <input type="text" value={name} name='name' onChange={this.handleInputChange} placeholder="Name"/>
+        <input type="text" value={logo} name='logo' onChange={this.handleInputChange} placeholder="logo url"/>
+        <input type="email" value={email} name='email' onChange={this.handleInputChange} placeholder="email"/>
+        <input type="password" value={password} name='password' onChange={this.handleInputChange} placeholder="password"/>
+        <input type="submit" value="register"/>
+      </form>
+    </div>);
   }
 }
 

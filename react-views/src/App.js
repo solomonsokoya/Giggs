@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {user_worker, user_employer} from './ducks/userType';
+import { registerPageChange } from './ducks/register';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
@@ -24,7 +25,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => ({
   handleUserWorker: () => dispatch(user_worker()),
-  handleUserEmployer: () => dispatch(user_employer())
+  handleUserEmployer: () => dispatch(user_employer()),
+  handleChange: (name, value) => dispatch(registerPageChange(name, value))
 });
 
 class App extends Component {
@@ -40,7 +42,8 @@ class App extends Component {
       picture,
       password,
       skills,
-      location
+      location,
+      handleChange
     } = this.props
     let View;
 
@@ -62,6 +65,7 @@ class App extends Component {
         logo = {logo}
         email ={email}
         password ={password}
+        handleChange = {handleChange}
       />
     }
     return (<div>
