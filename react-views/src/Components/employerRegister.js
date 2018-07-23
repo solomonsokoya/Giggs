@@ -3,7 +3,8 @@ class employerRegister extends Component {
   constructor(props) {
     super(props)
 
-    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.submit = () => this.props.handleSubmit(this.props)
   }
 
   handleInputChange(e) {
@@ -21,7 +22,7 @@ class employerRegister extends Component {
         <input type="text" value={logo} name='logo' onChange={this.handleInputChange} placeholder="logo url"/>
         <input type="email" value={email} name='email' onChange={this.handleInputChange} placeholder="email"/>
         <input type="password" value={password} name='password' onChange={this.handleInputChange} placeholder="password"/>
-        <input type="submit" value="register"/>
+        <input type="submit" value="register" onClick = {this.submit}/>
       </form>
     </div>);
   }

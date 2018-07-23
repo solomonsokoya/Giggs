@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const employerDb = require('../models/employers');
 
 function register(req, res, next){
+  console.log(req.body);
   const salt = parseInt(process.env.SALT);
   const hash = bcrypt.hashSync(req.body.password, salt)
   const user = {
