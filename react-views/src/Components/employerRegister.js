@@ -4,7 +4,10 @@ class employerRegister extends Component {
     super(props)
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.submit = () => this.props.handleSubmit(this.props)
+    this.submit = (e) => {
+      e.preventDefault()
+      this.props.handleSubmit(this.props)
+    }
   }
 
   handleInputChange(e) {
