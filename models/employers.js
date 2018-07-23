@@ -36,7 +36,7 @@ function createEmployer(employer){
   (name, logo, email, password)
   VALUES
   ($/name/, $/logo/, $/email/, $/password/)
-  RETURNING *
+  RETURNING name, logo, email
     `,employer);
 
   return queryPromise;

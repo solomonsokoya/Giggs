@@ -8,7 +8,7 @@ export const registerEmployer = async (attempt) => {
             'content-type': 'application/json'
                 }
               });
-        let json = promise.json();
+        let json = await promise.json();
         console.log(json);
 
       }
