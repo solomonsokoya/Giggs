@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 const employerDb = require('../models/employers');
 
-function register(req, res, next){
+function register(req, res, next) {
   console.log(req.body);
   const salt = parseInt(process.env.SALT);
   const hash = bcrypt.hashSync(req.body.password, salt)
@@ -17,54 +17,45 @@ function register(req, res, next){
     password: hash
   }
 
-  employerDb.createEmployer(user)
-    .then( user =>{
-      if( !user ){
-        throw{
-          message: 'not correct'
-        }
+  employerDb.createEmployer(user).then(user => {
+    if (!user) {
+      throw {
+        message : 'not correct'
       }
-      res.json({
-          user
-      })
-    })
-    .catch( err => {
-      next(err);
-    })
+    }
+    res.json({user})
+  }).catch(err => {
+    next(err);
+  })
 }
 
-function login (req, res, next){
+function login(req, res, next) {
   let employer;
-  const loginAttempt ={
+  const loginAttempt = {
     email: req.body.email,
     password: req.body.password
   };
-  employerDb.oneEmployerByEmail(loginAttempt.email)
-  .then(data =>{
+  employerDb.oneEmployerByEmail(loginAttempt.email).then(data => {
     user = data
     return bcrypt.compareSync(loginAttempt.password, data.password);
-  })
-  .then( validPass => {
-    if(!validPass){
+  }).then(validPass => {
+    if (!validPass) {
 
-      throw{
-        message: "invalid password"
+      throw {
+        message : "invalid password"
       }
     }
-    res.json({
-      employer
-    })
-  })
-  .catch( err =>{
+    res.json({employer})
+  }).catch(err => {
     next(err);
 
-    })
+  })
 
 };
 
 function logout(req, res, next) {
   req.session.destroy(err => next(err));
-   }
+}
 
 module.exports = {
   register: register,

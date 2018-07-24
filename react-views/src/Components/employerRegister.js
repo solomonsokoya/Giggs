@@ -6,7 +6,7 @@ class employerRegister extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submit = (e) => {
       e.preventDefault()
-      this.props.handleSubmit(this.props)
+      this.props.onClick(this.props)
     }
   }
 

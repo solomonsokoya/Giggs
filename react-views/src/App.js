@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {registerEmployer} from './api/';
+import {Api} from './api/';
 import {user_worker, user_employer} from './ducks/userType';
 import { registerPageChange } from './ducks/register';
+import {user_data} from './ducks/userData';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
 
 const mapStateToProps = state => {
-
+  console.log(state);
   const { worker, employer} = state.userType;
   const { email, logo, name, picture, password, skills, location} = state.register;
 
@@ -28,10 +29,14 @@ const mapDispatchToProps = dispatch => ({
   handleUserWorker: () => dispatch(user_worker()),
   handleUserEmployer: () => dispatch(user_employer()),
   handleChange: (name, value) => dispatch(registerPageChange(name, value)),
-  handleSubmit: (attempt) => registerEmployer(attempt)
+  handleUserData: res => dispatch(user_data(res))
 });
 
 class App extends Component {
+  constructor (props){
+    super(props);
+    this.user = new Api(this.props.handleUserData)
+  }
   render() {
     const {
       handleUserWorker,
@@ -45,13 +50,16 @@ class App extends Component {
       password,
       skills,
       location,
-      handleChange,
-      handleSubmit
+      handleChange
     } = this.props
+
     let View;
 
     if (!worker && !employer) {
-      View = <Home handleUserWorker={handleUserWorker} handleUserEmployer={handleUserEmployer}/>
+      View = <Home
+        handleUserWorker={handleUserWorker}
+        handleUserEmployer={handleUserEmployer}
+      />
     } else if (worker) {
       View = <WorkerRegister
           name = {name}
@@ -70,7 +78,7 @@ class App extends Component {
         email ={email}
         password ={password}
         handleChange = {handleChange}
-        handleSubmit ={handleSubmit}
+        onClick ={() => this.user.registerEmployer({name, logo, email, password})}
       />
     }
     return (<div>

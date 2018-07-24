@@ -1,6 +1,6 @@
 function sendEmployers(req, res){
   console.log('I send successfully');
-  res.render('employers/index', {
+  res.json({
     employers: res.locals.employers
   });
 };
