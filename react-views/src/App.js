@@ -7,7 +7,7 @@ import {user_data} from './ducks/userData';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 
 const mapStateToProps = state => {
@@ -42,8 +42,6 @@ class App extends Component {
     const {
       handleUserWorker,
       handleUserEmployer,
-      worker,
-      employer,
       email,
       logo,
       name,
@@ -57,7 +55,8 @@ class App extends Component {
     return (
 
     <div>
-        <Route exact="exact" path="/" component={()=> (<Home
+      <Switch>
+        <Route exact path="/" component={()=> (<Home
           handleUserWorker={handleUserWorker}
           handleUserEmployer={handleUserEmployer}
         />)}/>
@@ -78,6 +77,7 @@ class App extends Component {
            handleChange = {handleChange}
            onClick ={() => this.user.registerEmployer({name, logo, email, password})}
          />)}/>
+       </Switch>
      </div>
     );
   }
