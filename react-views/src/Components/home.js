@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 class Home extends Component {
   render() {
     return (
@@ -7,8 +8,8 @@ class Home extends Component {
         <div className = "grid">
           <p className = "title"> Giggs</p>
           <div className = "statement"> Commited To Connecting Employers & Future Employees</div>
-          <button className ="bt1" onClick = {this.props.handleUserWorker}>Worker</button>
-          <button className = "bt2" onClick = {this.props.handleUserEmployer}>Employer</button>
+          <Link className ="bt1" to='/worker' onClick = {this.props.handleUserWorker}>Worker</Link>
+          <Link className = "bt2" to= '/employer' onClick = {this.props.handleUserEmployer}>Employer</Link>
         </div>
       </div>
     );

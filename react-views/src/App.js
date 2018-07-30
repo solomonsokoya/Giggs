@@ -7,6 +7,8 @@ import {user_data} from './ducks/userData';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
+import {Route} from 'react-router-dom';
+
 
 const mapStateToProps = state => {
   const { worker, employer} = state.userType;
@@ -51,38 +53,33 @@ class App extends Component {
       location,
       handleChange
     } = this.props
+    console.log(this.props)
+    return (
 
-    let View;
-
-    if (!worker && !employer) {
-      View = <Home
-        handleUserWorker={handleUserWorker}
-        handleUserEmployer={handleUserEmployer}
-      />
-    } else if (worker) {
-      View = <WorkerRegister
-          name = {name}
-          skills = {skills}
-          picture = {picture}
-          location = {location}
-          email = {email}
-          password = {password}
-          handleChange = {handleChange}
-       />
-    }
-    else if(employer){
-      View = <EmployerRegister
-        name = {name}
-        logo = {logo}
-        email ={email}
-        password ={password}
-        handleChange = {handleChange}
-        onClick ={() => this.user.registerEmployer({name, logo, email, password})}
-      />
-    }
-    return (<div>
-      {View}
-    </div>);
+    <div>
+        <Route exact="exact" path="/" component={()=> (<Home
+          handleUserWorker={handleUserWorker}
+          handleUserEmployer={handleUserEmployer}
+        />)}/>
+        <Route path="/worker" component={()=> (<WorkerRegister
+            name = {name}
+            skills = {skills}
+            picture = {picture}
+            location = {location}
+            email = {email}
+            password = {password}
+            handleChange = {handleChange}
+         />)}/>
+         <Route path="/employer" component={()=> (<EmployerRegister
+           name = {name}
+           logo = {logo}
+           email ={email}
+           password ={password}
+           handleChange = {handleChange}
+           onClick ={() => this.user.registerEmployer({name, logo, email, password})}
+         />)}/>
+     </div>
+    );
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
