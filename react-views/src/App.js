@@ -9,7 +9,6 @@ import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
 
 const mapStateToProps = state => {
-  console.log(state);
   const { worker, employer} = state.userType;
   const { email, logo, name, picture, password, skills, location} = state.register;
 
@@ -68,7 +67,7 @@ class App extends Component {
           location = {location}
           email = {email}
           password = {password}
-
+          handleChange = {handleChange}
        />
     }
     else if(employer){
