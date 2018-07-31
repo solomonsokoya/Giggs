@@ -11,7 +11,6 @@ class workerRegister extends Component {
   }
 
   handleInputChange(e) {
-    console.log(e.target)
     const { name, value} = e.target;
     this.props.handleChange(name, value);
   }
