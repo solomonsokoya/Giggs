@@ -2,7 +2,7 @@
 
 ## Project Description
 
--- The project I'll be working on is similar to indeed and shift gigs. The finish project
+The project I'll be working on is similar to indeed and shift gigs. The finish project
 should be able to create users (Worker/Employer). When the employer is created they can be able to
 post job. The worker should be able to see the listing and then click to
 apply/email. The employer can add/delete/update job postings.
@@ -13,7 +13,7 @@ apply/email. The employer can add/delete/update job postings.
     -CRUD
     -CSS
 
-## POST MVP
+## Post MVP
     -Facebook API
     -Indeed API
 
