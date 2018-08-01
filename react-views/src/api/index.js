@@ -4,7 +4,6 @@ export class Api {
     this.userinfo = userinfo;
 
     this.registerEmployer = async (attempt) => {
-      console.log('this is an attempt' + attempt);
       try {
         let promise = await fetch('/employers/register', {
           method: 'POST',

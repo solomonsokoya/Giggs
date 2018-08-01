@@ -6,7 +6,6 @@ export const reducer = (state = '', action) => {
   switch (action.type) {
     case USER_DATA:
       const {id, name, logo, email} = action.payload.user
-      console.log('HI' + action.payload )
       return Object.assign({}, state, {id, name, logo, email})
 
     default:

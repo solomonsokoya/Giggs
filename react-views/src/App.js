@@ -7,12 +7,14 @@ import {user_data} from './ducks/userData';
 import Home from './Components/home';
 import WorkerRegister from './Components/workerRegister';
 import EmployerRegister from './Components/employerRegister';
+import EmployerProfile from './Components/employerProfile';
 import {Route, Switch} from 'react-router-dom';
 
 
 const mapStateToProps = state => {
   const { worker, employer} = state.userType;
   const { email, logo, name, picture, password, skills, location} = state.register;
+  const Loggeduser = state.userData;
 
   return {
     worker,
@@ -23,7 +25,8 @@ const mapStateToProps = state => {
     picture,
     password,
     skills,
-    location
+    location,
+    Loggeduser
   }
 }
 const mapDispatchToProps = dispatch => ({
@@ -49,13 +52,13 @@ class App extends Component {
       password,
       skills,
       location,
-      handleChange
+      handleChange,
+      Loggeduser
     } = this.props
-    console.log(this.props)
-    return (
 
-    <div>
-      <Switch>
+    let View;
+    if(!Loggeduser){
+      View = (<Switch>
         <Route exact path="/" component={()=> (<Home
           handleUserWorker={handleUserWorker}
           handleUserEmployer={handleUserEmployer}
@@ -77,8 +80,22 @@ class App extends Component {
            handleChange = {handleChange}
            onClick ={() => this.user.registerEmployer({name, logo, email, password})}
          />)}/>
-       </Switch>
-     </div>
+       </Switch>)
+    }
+
+    else {
+
+      View = (
+      <Switch>
+          <Route path ='/' render = {() => (<EmployerProfile User = {Loggeduser}/>)}/>
+      </Switch>
+      )
+    }
+
+    return (
+        <div>
+          {View}
+        </div>
     );
   }
 }

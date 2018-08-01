@@ -21,5 +21,5 @@
   1. Clone
   2. Within project folder run: npm i
   3. Within react views run: npm i
-  4. Within project folder run : npm run
+  4. Within project folder run : npm run dev
   5. ENJOY!
