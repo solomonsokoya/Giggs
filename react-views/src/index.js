@@ -4,17 +4,18 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import store from './store';
-import { BrowserRouter as Router} from 'react-router-dom'
+import {history} from './store';
 
 ReactDOM.render(
 
 <Provider store = {store}>
-  <Router>
+   <ConnectedRouter history={history}>
 
     <App />
 
-  </Router>
+   </ConnectedRouter>
 </Provider>
 
 

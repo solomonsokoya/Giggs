@@ -60,7 +60,7 @@ class App extends Component {
           handleUserWorker={handleUserWorker}
           handleUserEmployer={handleUserEmployer}
         />)}/>
-        <Route path="/worker" component={()=> (<WorkerRegister
+        <Route path="/worker" render={()=> (<WorkerRegister
             name = {name}
             skills = {skills}
             picture = {picture}
@@ -69,7 +69,7 @@ class App extends Component {
             password = {password}
             handleChange = {handleChange}
          />)}/>
-         <Route path="/employer" component={()=> (<EmployerRegister
+         <Route path="/employer" render={()=> (<EmployerRegister
            name = {name}
            logo = {logo}
            email ={email}
