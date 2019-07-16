@@ -29,10 +29,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
-
-app.get('/', (req,res) => {
-  res.send('Good to go');
-});
+// 
+// app.get('/', (req,res) => {
+//   res.send('Good to go');
+// });
 
 app.use('/employers', employersRouter);
 app.use('/workers', workersRouter);

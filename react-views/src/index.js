@@ -10,14 +10,11 @@ import {history} from './store';
 
 ReactDOM.render(
 
-<Provider store = {store}>
-   <ConnectedRouter history={history}>
-
-    <App />
-
-   </ConnectedRouter>
-</Provider>
-
-
+    <Provider store = {store}>
+       <ConnectedRouter history={history}>
+        <App />
+       </ConnectedRouter>
+    </Provider>
+    
   , document.getElementById('root'));
 registerServiceWorker();
